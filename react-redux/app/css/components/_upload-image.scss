@@ -1,0 +1,57 @@
+.upload-image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 1px solid $gray7;
+  overflow: hidden;
+  display: flex;
+  margin: 10px;
+  box-shadow: 3px 3px 11px rgba(221, 221, 221, 0.6);
+  .box-icon-image {
+    margin: auto;
+    font-size: 100px;
+  }
+  .box-icon-image a.icom-img {
+    color: $gray5;
+  }
+
+  .box-icon-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  input.input-file {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  input.input-file:hover ~ .button-clear {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+  }
+
+  .button-clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    padding: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease-in-out;
+    z-index: 3;
+    &:hover {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .button-clear a {
+    color: $red4;
+  }
+}
