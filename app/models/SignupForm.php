@@ -3,7 +3,6 @@ namespace app\models;
 
 use yii\base\Model;
 use app\models\User;
-use yii\web\UploadedFile;
 /**
  * Signup form
  */
@@ -45,7 +44,6 @@ class SignupForm extends Model {
     $user = new User();
     $user->username = $this->username;
     $user->email = $this->email;
-    $user->image = $this->image;
     $user->setPassword($this->password);
     $user->generateAuthKey();
     

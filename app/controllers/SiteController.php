@@ -82,23 +82,9 @@ class SiteController extends Controller {
       $this->layout = 'login';
       $model = new SignupForm();
       if ($model->load(Yii::$app->request->post())) {
-        $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-        // ไม่มีการ upload image
-        if (empty($model->imageFile)) {
-          if ($user = $model->signup()) {
-            if (Yii::$app->getUser()->login($user)) {
-              return $this->goHome();
-            }
-          }
-        } else {          
-          $uploadImage = $model->upload();
-          if (!empty($uploadImage)) {
-            $model->image = $uploadImage;
-            if ($user = $model->signup()) {
-              if (Yii::$app->getUser()->login($user)) {
-                return $this->goHome();
-              }
-            }
+        if ($user = $model->signup()) {
+          if (Yii::$app->getUser()->login($user)) {
+            return $this->goHome();
           }
         }
       }
