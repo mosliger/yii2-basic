@@ -2,6 +2,11 @@ body{
   font-size: 14px;
 }
 
+.wrap {
+	display: flex;
+	margin-top: $headerHeight;
+}
+
 a {
   text-decoration: none;
 }

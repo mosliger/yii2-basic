@@ -146,6 +146,7 @@ class SiteController extends Controller {
       return $this->goBack();
     }
     return $this->render('login', [
+      'errors' => sizeof($model->getErrors()) > 0, // return bool
       'model' => $model,
     ]);
   }

@@ -6,14 +6,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(http://localhost/loan-fund/app/images/background-login.jpg);
-  background-size: cover;
-  .field-group label {
-    color: #fff;
-  }
-
+  background: $dark-background; 
   .field-group {
-    margin: 30px 0;
+    margin: 20px 0;
   }
 }
 
@@ -23,9 +18,9 @@
   margin: auto;
 }
 
-.header {
+.wrap-login .header {
   display: block;
-  color: #fff;
+  color: $gray6;
   text-align: center;
   margin: 30px;
   font-size: 40px;
@@ -33,7 +28,9 @@
 
 .component {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.92);
 }
 
 .button-group {
@@ -41,12 +38,20 @@
 }
 
 .button-group a {
-  color: #fff;
+  color: $gray6;
   font-size: 16px;
 }
 
 .form form {
   display: block;
   width: 100%;
+}
+
+.login-error {
+  color: $red1;
+  display: none;
+  &.show{
+    display: block;
+  }
 }
 

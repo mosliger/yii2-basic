@@ -3,7 +3,7 @@ import InputField from 'react-input-forms'
 
 export default class Login extends React.Component {
   static propTypes = {
-    // errorMessage: PropTypes.string,
+    errorMessage: PropTypes.string,
     // forms: PropTypes.
   };
 
@@ -24,8 +24,13 @@ export default class Login extends React.Component {
   }
 
   state = {
+    focus: true,
     username: '',
     password: ''
+  }
+
+  handleBlurUsername = () => {
+    this.setState({ focus: false });
   }
 
   handleUpdateValue = (value, name) => {
@@ -33,8 +38,8 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const { username, password } = this.state
-    const { forms } = this.props
+    const { username, password, focus } = this.state
+    const { forms, errorMessage } = this.props
     let disabledButton = false
     if (username === '' || password === '') {
       disabledButton = true
@@ -43,10 +48,12 @@ export default class Login extends React.Component {
       <div className='form'>
         <InputField
           type='text'
+          focus={focus}
           value={username}
           name={forms.username.name}
           placeholder={forms.username.placeholder}
           label={forms.username.label}
+          onBlur={() => this.handleBlurUsername()}
           onChange={(value) => this.handleUpdateValue(value, 'username')}
         />
         <InputField
@@ -57,8 +64,9 @@ export default class Login extends React.Component {
           label={forms.password.label}
           onChange={(value) => this.handleUpdateValue(value, 'password')}
         />
+        <div className={`login-error ${errorMessage !== '' ? 'show' : ''}`}>{errorMessage}</div>
         <div className='field-group _right'>
-          <button disabled={disabledButton} className={`button-outline gray ${disabledButton ? 'disabled' : ''}`}>เข้าสู่ระบบ</button>
+          <button disabled={disabledButton} className={`button green ${disabledButton ? 'disabled' : ''}`}>เข้าสู่ระบบ</button>
         </div>
       </div>
     )

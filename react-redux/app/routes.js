@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-import { App, Home, LoginPage, SignupPage, ProfilePage } from './containers'
+import { App, Home, LoginPage, SignupPage, ProfilePage, AboutPage } from './containers'
 import StyleGuide from './containers/styleGuide/index'
 
 const routes = (
@@ -8,6 +8,7 @@ const routes = (
     <IndexRoute component={Home} />
     <Route path='/style-guide' component={StyleGuide} />
     <Route path='/login' component={LoginPage} />
+    <Route path='/about' component={AboutPage} />
     <Route path='/signup' component={SignupPage} />
     <Route path='/profile' component={ProfilePage} />
   </Route>

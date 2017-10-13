@@ -30,10 +30,15 @@ export default class Signup extends React.Component {
   }
 
   state = {
+    focus: true,
     username: '',
     password: '',
     email: '',
     error: {}
+  }
+
+  handleBlurUsername = () => {
+    this.setState({ focus: false });
   }
 
   handleUpdateValue = (value, name, errorMessage) => {
@@ -43,7 +48,7 @@ export default class Signup extends React.Component {
   }
 
   render() {
-    const { username, password, email, error } = this.state
+    const { username, password, email, error, focus } = this.state
     const { forms } = this.props
     let disabledButton = false
     for (const key in error) {
@@ -54,11 +59,13 @@ export default class Signup extends React.Component {
       <div className='form'>
         <InputField
           type='text'
+          focus={focus}
           value={username}
           name={forms.username.name}
           placeholder={forms.username.placeholder}
           label={forms.username.label}
           rules={forms.username.rules}
+          onBlur={() => this.handleBlurUsername()}
           onChange={(value, name, errorMessage) => this.handleUpdateValue(value, 'username', errorMessage)}
         />
         <InputField
@@ -80,7 +87,7 @@ export default class Signup extends React.Component {
           onChange={(value, name, errorMessage) => this.handleUpdateValue(value, 'password', errorMessage)}
         />
         <div className='field-group _right'>
-          <button disabled={disabledButton} className={`button-outline gray ${disabledButton ? 'disabled' : ''}`}>สมัครสมาชิก</button>
+          <button disabled={disabledButton} className={`button green ${disabledButton ? 'disabled' : ''}`}>สมัครสมาชิก</button>
         </div>
       </div>
     )

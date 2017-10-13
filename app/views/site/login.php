@@ -10,6 +10,7 @@ use yii\helpers\Url;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 
   <div class="site">
@@ -20,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <?php ActiveForm::end(); ?>
     </div>
     <div class="button-group">
-      <a href="<?=Url::to(['site/signup'])?>">สมัครสมาชิก</a>
+      <a href="<?=Url::to(['site/signup'])?>">สมัครสมาชิก </a>
     </div>
   </div>
 
@@ -39,6 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
         placeholder: 'รหัสผ่าน'
       }
     };
-    VENDOR.LoginComponent(forms, '', 'login-component');
+    VENDOR.LoginComponent(forms, '<?= empty($errors) ? '' : 'กรุณาตรวจสอบ ชื่อผู้ใช้ หรือ หรัสผ่าน' ?>', 'login-component');
   }
 </script>

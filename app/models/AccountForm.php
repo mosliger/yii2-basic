@@ -112,7 +112,7 @@ class AccountForm extends Model {
 
   public function upload() {
     if ($this->validate()) {
-      $part = 'uploads/image-'.date("U").'-'.$this->imageFile->baseName .'.'. $this->imageFile->extension;
+      $part = 'uploads/image-'.date("U").'.'. $this->imageFile->extension;
       $this->imageFile->saveAs($part);
       return $part;
     } else {

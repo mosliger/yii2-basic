@@ -23,35 +23,31 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?> 
-  <header class="main-header">
-    <div class="logo">
+  <header class='main-header'>
+    <div class='logo'>
       <a href="<?=Url::home()?>" class="active">Home</a>
     </div>
-    <nav>
-      <ul>
-        <li>
-          <a href="<?=Url::to(['site/profile'])?>" class="icon-profile">
-            <img src='https://wwwf.imperial.ac.uk/blog/student-blogs/files/2017/01/mala-profile-400-150x150.png' alt='' />
-          </a>
-        </li>
-        <li>
-          <form action="<?=Url::to(['site/logout'])?>" method="post">
-            <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
-            <button type="submit" class="btn btn-link logout">Logout (<?=Yii::$app->user->identity->username?>)</button>
-          </form>
-        </li>
-      </ul>
-    </nav>
+    <div class='menu-bar'>
+      <input type='checkbox' class='button-icon-mobile' />
+      <i class='icon'></i>
+      <nav>
+        <ul>
+          <li>
+            <a href="<?=Url::to(['site/profile'])?>" class="icon-profile">Profile</a>
+          </li>
+          <li>
+            <form action="<?=Url::to(['site/logout'])?>" method="post">
+              <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
+              <button type="submit" class="btn btn-link logout">Logout (<?=Yii::$app->user->identity->username?>)</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
   </header>
-  <div class="wrap">
-    <div class="menu-list">
-      <ul>
-        <li><a href='#'>Menu 1</a></li>
-      </ul>
-    </div>
-    <div class="content">
-      <?= $content ?>
-    </div>
+  <div class='wrap'>
+    <?= $content ?>
   </div>
 
 <?php
