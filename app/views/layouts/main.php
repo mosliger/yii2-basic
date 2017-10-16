@@ -35,12 +35,7 @@ AppAsset::register($this);
           <li>
             <a href="<?=Url::to(['site/profile'])?>" class="icon-profile">Profile</a>
           </li>
-          <li>
-            <form action="<?=Url::to(['site/logout'])?>" method="post">
-              <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
-              <button type="submit" class="btn btn-link logout">Logout (<?=Yii::$app->user->identity->username?>)</button>
-            </form>
-          </li>
+         
         </ul>
       </nav>
     </div>
@@ -53,6 +48,13 @@ AppAsset::register($this);
 <?php
 /*
 <header class="main-header">
+
+ <li>
+            <form action="<?=Url::to(['site/logout'])?>" method="post">
+              <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
+              <button type="submit" class="btn btn-link logout">Logout (<?=Yii::$app->user->identity->username?>)</button>
+            </form>
+          </li>
     <nav>
       <ul class="navigation">
         <li><a href="<?=Url::home()?>" class="active">Home</a></li>

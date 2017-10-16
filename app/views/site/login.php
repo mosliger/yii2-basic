@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="button-group">
       <a href="<?=Url::to(['site/signup'])?>">สมัครสมาชิก </a>
+      <a href="<?=Url::to(['site/request-password-reset'])?>">reset password</a>
     </div>
   </div>
 

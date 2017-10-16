@@ -35,10 +35,10 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-/*        'mailer' => [
+        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
-        ],*/
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -49,17 +49,18 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '/' => 'site/index',
-                'signup' => 'site/signup',
-                'login' => 'site/login',
-                'logout' => 'site/logout',
-                'profile' => 'site/profile',
-            ],
-        ], 
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //         '/' => 'site/index',
+        //         'signup' => 'site/signup',
+        //         'login' => 'site/login',
+        //         'logout' => 'site/logout',
+        //         'profile' => 'site/profile',
+        //         'reset-password' => 'site/request-password-reset',
+        //     ],
+        // ], 
     ],
     'params' => $params,
 ];
